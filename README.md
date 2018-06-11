@@ -1,0 +1,2 @@
+# examplepagelistadapter
+Example PagedListAdapter Architecture Component
