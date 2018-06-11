@@ -1,4 +1,4 @@
-package com.ult3mate.examplepagelistadapter.repository
+package com.ult3mate.examplepagelistadapter.ui.repository
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.ItemKeyedDataSource

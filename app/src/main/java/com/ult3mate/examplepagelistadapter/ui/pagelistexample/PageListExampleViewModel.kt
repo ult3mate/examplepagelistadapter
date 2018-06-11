@@ -8,8 +8,8 @@ import android.arch.paging.PagedList
 import com.ult3mate.examplepagelistadapter.api.GithubApi
 import com.ult3mate.examplepagelistadapter.dao.GithubUser
 import com.ult3mate.examplepagelistadapter.dao.NetworkState
-import com.ult3mate.examplepagelistadapter.repository.GithubUserDataSource
-import com.ult3mate.examplepagelistadapter.repository.GithubUserDataSourceFactory
+import com.ult3mate.examplepagelistadapter.ui.repository.GithubUserDataSource
+import com.ult3mate.examplepagelistadapter.ui.repository.GithubUserDataSourceFactory
 import io.reactivex.disposables.CompositeDisposable
 
 class PageListExampleViewModel : ViewModel() {
