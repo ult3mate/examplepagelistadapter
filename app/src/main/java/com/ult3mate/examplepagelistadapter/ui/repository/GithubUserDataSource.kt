@@ -5,9 +5,7 @@ import android.arch.paging.ItemKeyedDataSource
 import com.ult3mate.examplepagelistadapter.api.GithubApi
 import com.ult3mate.examplepagelistadapter.dao.GithubUser
 import com.ult3mate.examplepagelistadapter.dao.NetworkState
-import io.reactivex.Completable
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.Action
 
 /**
  * Created by beer on 11/6/2018 AD.
@@ -19,7 +17,6 @@ class GithubUserDataSource(
     : ItemKeyedDataSource<Long, GithubUser>() {
 
     val networkState = MutableLiveData<NetworkState>()
-    private var retryCompletable: Completable? = null
 
     override fun loadInitial(params: LoadInitialParams<Long>, callback: LoadInitialCallback<GithubUser>) {
         compositeDisposable.add(githubService.getUsers(1, params.requestedLoadSize).subscribe({ users ->
@@ -48,13 +45,5 @@ class GithubUserDataSource(
 
     override fun getKey(item: GithubUser): Long {
         return item.id
-    }
-
-    private fun setRetry(action: Action?) {
-        if (action == null) {
-            this.retryCompletable = null
-        } else {
-            this.retryCompletable = Completable.fromAction(action)
-        }
     }
 }

@@ -5,7 +5,7 @@
     android:id="@+id/pagelistexample"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pagelistexample.PageListExampleFragment">
+    tools:context=".ui.itemkeyedexample.PageKeyedExampleFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/page_list_rv"

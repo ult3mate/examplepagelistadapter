@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.module.AppGlideModule
+import com.perspective23.willing.modules.dao.feed.FeedResult
 import com.ult3mate.examplepagelistadapter.GlideApp
 import com.ult3mate.examplepagelistadapter.R
 import com.ult3mate.examplepagelistadapter.dao.GithubUser
@@ -21,6 +21,16 @@ class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         itemView.adapter_page_list_tv.text = user?.login
         GlideApp.with(itemView.context)
                 .load(user?.avatar_url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(R.mipmap.ic_launcher)
+                .into(itemView.adapter_page_list_iv)
+
+    }
+
+    fun bindTo(user: FeedResult?) {
+        itemView.adapter_page_list_tv.text = user?.name
+        GlideApp.with(itemView.context)
+                .load(user?.thumbnailUrl)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher)
                 .into(itemView.adapter_page_list_iv)

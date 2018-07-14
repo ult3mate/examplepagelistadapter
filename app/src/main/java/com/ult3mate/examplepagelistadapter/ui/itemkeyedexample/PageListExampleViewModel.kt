@@ -1,4 +1,4 @@
-package com.ult3mate.examplepagelistadapter.ui.pagelistexample
+package com.ult3mate.examplepagelistadapter.ui.itemkeyedexample
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.Transformations

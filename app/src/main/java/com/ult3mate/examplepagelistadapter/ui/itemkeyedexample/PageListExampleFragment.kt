@@ -1,4 +1,4 @@
-package com.ult3mate.examplepagelistadapter.ui.pagelistexample
+package com.ult3mate.examplepagelistadapter.ui.itemkeyedexample
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -23,7 +23,7 @@ class PageListExampleFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = PageListExampleFragment()
+        fun newInstance() = PageKeyedExampleFragment()
     }
     private lateinit var githubAdapter: PageListExampleAdapter
     private lateinit var viewModel: PageListExampleViewModel
