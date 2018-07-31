@@ -23,7 +23,7 @@ class PageListExampleFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = PageKeyedExampleFragment()
+        fun newInstance() = PageListExampleFragment()
     }
     private lateinit var githubAdapter: PageListExampleAdapter
     private lateinit var viewModel: PageListExampleViewModel
@@ -46,7 +46,8 @@ class PageListExampleFragment : Fragment() {
         }
         page_list_rv.layoutManager = linearLayoutManager
         page_list_rv.adapter = githubAdapter
-        viewModel.userList?.observe(this, Observer<PagedList<GithubUser>> {
+
+        viewModel.userList.observe(this, Observer<PagedList<GithubUser>> {
             githubAdapter.submitList(it)
         })
 
