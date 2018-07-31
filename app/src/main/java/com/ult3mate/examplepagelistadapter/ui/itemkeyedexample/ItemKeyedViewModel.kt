@@ -12,32 +12,30 @@ import com.ult3mate.examplepagelistadapter.ui.repository.GithubUserDataSource
 import com.ult3mate.examplepagelistadapter.ui.repository.GithubUserDataSourceFactory
 import io.reactivex.disposables.CompositeDisposable
 
-class PageListExampleViewModel : ViewModel() {
-    var userList: LiveData<PagedList<GithubUser>>? = null
+class ItemKeyedViewModel : ViewModel() {
+    var userList: LiveData<PagedList<GithubUser>>
 
     private val compositeDisposable = CompositeDisposable()
 
     private val pageSize = 10
 
-    val sourceFactory: GithubUserDataSourceFactory
+    private val sourceFactory: GithubUserDataSourceFactory
 
     init {
         sourceFactory = GithubUserDataSourceFactory(compositeDisposable, GithubApi.create())
         val config = PagedList.Config.Builder()
                 .setPageSize(pageSize)
-                .setInitialLoadSizeHint(pageSize * 2)
+                .setInitialLoadSizeHint(pageSize * 5)
                 .setEnablePlaceholders(false)
                 .build()
         userList = LivePagedListBuilder<Long, GithubUser>(sourceFactory, config).build()
     }
 
     fun retry() {
-//        sourceFactory.usersDataSourceLiveData.value?.re
     }
 
     fun getNetworkState(): LiveData<NetworkState> = Transformations.switchMap<GithubUserDataSource, NetworkState>(
-            sourceFactory.usersDataSourceLiveData, { it.networkState })
-
+            sourceFactory.usersDataSourceLiveData) { it.networkState }
 
     override fun onCleared() {
         super.onCleared()

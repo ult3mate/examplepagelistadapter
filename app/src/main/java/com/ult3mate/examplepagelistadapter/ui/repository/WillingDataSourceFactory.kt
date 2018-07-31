@@ -15,7 +15,6 @@ class WillingDataSourceFactory(private val compositeDisposable: CompositeDisposa
 
     val usersDataSourceLiveData = MutableLiveData<WillingDataSource>()
 
-
     override fun create(): DataSource<String, FeedResult> {
         val willingDataSource = WillingDataSource(willingApi, compositeDisposable)
         usersDataSourceLiveData.postValue(willingDataSource)

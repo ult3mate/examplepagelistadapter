@@ -16,17 +16,17 @@ import com.ult3mate.examplepagelistadapter.dao.NetworkState
 import com.ult3mate.examplepagelistadapter.ui.adapter.PageListExampleAdapter
 import kotlinx.android.synthetic.main.page_list_example_fragment.*
 
-class PageListExampleFragment : Fragment() {
+class ItemKeyedExampleFragment : Fragment() {
 
     private val api by lazy {
         GithubApi.create()
     }
 
     companion object {
-        fun newInstance() = PageListExampleFragment()
+        fun newInstance() = ItemKeyedExampleFragment()
     }
     private lateinit var githubAdapter: PageListExampleAdapter
-    private lateinit var viewModel: PageListExampleViewModel
+    private lateinit var viewModel: ItemKeyedViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -35,7 +35,7 @@ class PageListExampleFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(PageListExampleViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ItemKeyedViewModel::class.java)
         initLayoutManager()
     }
 
